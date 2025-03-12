@@ -1,0 +1,2 @@
+# supertrunfo_C
+COLLEGE'S PROJECT - SUPERTRUNFO IN C
