@@ -11,6 +11,7 @@
         double pib, pib2, densidade_demografica, densidade_demografica2, PIBperCapita, PIBperCapita2;
 
         // Menu de opções
+        menu:
             printf("Menu Principal\n");
             printf("1 - Jogar\n");
             printf("2 - Regras do jogo\n");
@@ -34,14 +35,12 @@
             scanf("%d", &opcao_atributo);
             while(getchar() != '\n');
 
-        if (opcao_atributo < 1 || opcao_atributo > 6) {
+            if (opcao_atributo < 1 || opcao_atributo > 6) {
             printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
             }
-        } while (opcao_atributo <1 || opcao_atributo > 6); //Enquanto a opção for menor que 1 ou maior que 6, o loop continuará
-            break;
-            
+        } while (opcao_atributo < 1 || opcao_atributo > 6); //Enquanto a opção for menor que 1 ou maior que 6, o loop continuará
         do {
-            printf("Escolha um atributo para comparar as cartas (Sera usado para determinar o vencedor):\n");
+            printf("Escolha o segundo atributo para comparar as cartas:\n");
             printf("1 - População\n");
             printf("2 - Área em km²\n");
             printf("3 - PIB\n");
@@ -50,19 +49,22 @@
             printf("6 - PIB per capita\n");
             scanf("%d", &opcao_atributo2);
             while(getchar() != '\n');
-    
-        if (opcao_atributo2 < 1 || opcao_atributo2 > 6) {
+
+            if (opcao_atributo2 < 1 || opcao_atributo2 > 6) {
             printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
             } else if (opcao_atributo2 == opcao_atributo) {
-                printf("Opção inválida, porfavor escolha um número diferente do anterior\n");
+            printf("Opção inválida, porfavor escoalha um número diferente do anterior\n");
             }
-        } while (opcao_atributo2<1 || opcao_atributo2 > 6); //Enquanto a opção for menor que 1 ou maior que 6, o loop continuará
-            break;
+        } while (opcao_atributo2 < 1 || opcao_atributo2 > 6 || opcao_atributo2 == opcao_atributo); //Enquanto a opção for menor que 1 ou maior que 6, ou igual ao primeiro atributo, o loop continuará
+        break;
         case 2:
             printf("Regras do jogo:\n");
             printf("O jogador deve escolher uma cidade para jogar.\n");
             printf("Os atributos das cartas devem ser preenchidos de acordo com valores reais da cidade escolhida\n");
             printf("Vence o jogador que tiver os maiores atributos somados no final da partida\n");
+            printf("Aperte enter para voltar ao menu principal\n");
+            getchar();
+            goto menu;
             break;
 
         case 3:
@@ -196,37 +198,37 @@
 
         switch(opcao_atributo) {
             case 1:
-            prinft("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
+            printf("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 populacao > populacao2 ? printf("Carta 1 venceu!!\n") : populacao2 > populacao ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 2:
-            prinft("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
+            printf("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 Area > Area2 ? printf("Carta 1 venceu!!\n") : Area2 > Area ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 3:
-            prinft("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
+            printf("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pib > pib2 ? printf("Carta 1 venceu!!\n") : pib2 > pib ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 4:
-            prinft("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
+            printf("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pontosTuristicos > pontosTuristicos2 ? printf("Carta 1 venceu!!\n") : pontosTuristicos2 > pontosTuristicos ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;         
             case 5:
-            prinft("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
+            printf("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 densidade_demografica < densidade_demografica2 ? printf("Carta 1 venceu!!\n") : densidade_demografica2 < densidade_demografica ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 6:
-            prinft("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
+            printf("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 PIBperCapita > PIBperCapita2 ? printf("Carta 1 venceu!!\n") : PIBperCapita2 > PIBperCapita ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
@@ -235,37 +237,37 @@
         
         switch(opcao_atributo) {
             case 1:
-            prinft("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
+            printf("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 populacao > populacao2 ? printf("Carta 1 venceu!!\n") : populacao2 > populacao ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 2:
-            prinft("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
+            printf("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 Area > Area2 ? printf("Carta 1 venceu!!\n") : Area2 > Area ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 3:
-            prinft("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
+            printf("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pib > pib2 ? printf("Carta 1 venceu!!\n") : pib2 > pib ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 4:
-            prinft("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
+            printf("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pontosTuristicos > pontosTuristicos2 ? printf("Carta 1 venceu!!\n") : pontosTuristicos2 > pontosTuristicos ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;         
             case 5:
-            prinft("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
+            printf("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 densidade_demografica < densidade_demografica2 ? printf("Carta 1 venceu!!\n") : densidade_demografica2 < densidade_demografica ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 6:
-            prinft("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
+            printf("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 PIBperCapita > PIBperCapita2 ? printf("Carta 1 venceu!!\n") : PIBperCapita2 > PIBperCapita ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
@@ -273,37 +275,37 @@
         }
         switch(opcao_atributo2) {
             case 1:
-            prinft("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
+            printf("Atributo escolhido para comparação: População\n População da carta 1: %d\n População da carta 2: %d\n", populacao, populacao2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 populacao > populacao2 ? printf("Carta 1 venceu!!\n") : populacao2 > populacao ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 2:
-            prinft("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
+            printf("Atributo escolhido para comparação: Área em Km²\n Área da carta 1: %.2f\n Área da carta 2: %.2f\n", Area, Area2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 Area > Area2 ? printf("Carta 1 venceu!!\n") : Area2 > Area ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 3:
-            prinft("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
+            printf("Atributo escolhido para comparação: PIB\n PIB da carta 1: R$ %.2lf Bilhões\n PIB da carta 2: R$ %.2lf Bilhões\n", pib, pib2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pib > pib2 ? printf("Carta 1 venceu!!\n") : pib2 > pib ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 4:
-            prinft("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
+            printf("Atributo escolhido para comparação: Pontos turísticos\n Pontos turísticos da carta 1: %d\n Pontos turísticos da carta 2: %d\n", pontosTuristicos, pontosTuristicos2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 pontosTuristicos > pontosTuristicos2 ? printf("Carta 1 venceu!!\n") : pontosTuristicos2 > pontosTuristicos ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;         
             case 5:
-            prinft("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
+            printf("Atributo escolhido para comparação: Densidade populacional\n Densidade populacional da carta 1: %.2lf\n Densidade populacional da carta 2: %.2lf\n", densidade_demografica, densidade_demografica2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 densidade_demografica < densidade_demografica2 ? printf("Carta 1 venceu!!\n") : densidade_demografica2 < densidade_demografica ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
             break;
             case 6:
-            prinft("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
+            printf("Atributo escolhido para comparação: PIB per capita\n PIB per capita da carta 1: R$ %.2lf\n PIB per capita da carta 2: R$ %.2lf\n", PIBperCapita, PIBperCapita2);
             printf("Comparando os atributos das cartas...\n");
             sleep (2);
                 PIBperCapita > PIBperCapita2 ? printf("Carta 1 venceu!!\n") : PIBperCapita2 > PIBperCapita ? printf("Carta 2 venceu!!\n") : printf("Empate!!\n");
