@@ -21,9 +21,7 @@
 
         switch (opcao_menu) {
         case 1:
-            printf("Iniciando o jogo...\n");
-            sleep(3);
-
+        
         do {
             printf("Escolha um atributo para comparar as cartas (Sera usado para determinar o vencedor):\n");
             printf("1 - População\n");
@@ -34,9 +32,9 @@
             printf("6 - PIB per capita\n");
             scanf("%d", &opcao_atributo);
             while(getchar() != '\n');
-
+            
             if (opcao_atributo < 1 || opcao_atributo > 6) {
-            printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
+                printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
             }
         } while (opcao_atributo < 1 || opcao_atributo > 6); //Enquanto a opção for menor que 1 ou maior que 6, o loop continuará
         do {
@@ -49,13 +47,15 @@
             printf("6 - PIB per capita\n");
             scanf("%d", &opcao_atributo2);
             while(getchar() != '\n');
-
+            
             if (opcao_atributo2 < 1 || opcao_atributo2 > 6) {
-            printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
+                printf("Opção inválida, porfavor escolha um número de 1 a 6\n");
             } else if (opcao_atributo2 == opcao_atributo) {
-            printf("Opção inválida, porfavor escoalha um número diferente do anterior\n");
+                printf("Opção inválida, porfavor escoalha um número diferente do anterior\n");
             }
         } while (opcao_atributo2 < 1 || opcao_atributo2 > 6 || opcao_atributo2 == opcao_atributo); //Enquanto a opção for menor que 1 ou maior que 6, ou igual ao primeiro atributo, o loop continuará
+            printf("Iniciando o jogo...\n");
+            sleep(3);
         break;
         case 2:
             printf("Regras do jogo:\n");
